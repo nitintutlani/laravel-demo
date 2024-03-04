@@ -14,7 +14,9 @@ class ActorController extends Controller
      */
     public function index(Request $request)
     {
-        return Actor::queryParams($request->all());
+        $limit = $request->get('limit', 10);
+
+        return Actor::queryParams($request->all())->paginate($limit);
     }
 
     /**

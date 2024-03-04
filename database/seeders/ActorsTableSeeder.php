@@ -14,7 +14,7 @@ class ActorsTableSeeder extends Seeder
     public function run(): void
     {
         Actor::factory()
-            ->count(10)
+            ->count(25)
             ->create();
     }
 }

@@ -31,10 +31,6 @@ class Actor extends Model
 
     public function scopeQueryParams($query, $params)
     {
-        $page = isset($params['page']) ? $params['page'] : 1;
-        $limit = isset($params['limit']) ? $params['limit'] : 10;
-        $query = $query->paginate($limit, ['*'], 'page', $page);
-
         if (isset($params['name'])) {
             $query = $query->where('name', 'like', '%' . $params['name'] . '%');
         }
