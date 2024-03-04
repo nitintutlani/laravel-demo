@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('actors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('birth_year');
-            $table->string('eye_color');
-            $table->string('gender');
-            $table->string('hair_color');
+            $table->integer('birth_year')->nullable();
+            $table->string('eye_color')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('hair_color')->nullable();
             $table->timestamps();
         });
     }

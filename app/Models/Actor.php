@@ -10,6 +10,13 @@ class Actor extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'birth_year',
+        'eye_color',
+        'gender',
+        'hair_color',
+    ];
     protected $appends = ['url'];
 
     public function movies()
@@ -29,7 +36,7 @@ class Actor extends Model
         $query = $query->paginate($limit, ['*'], 'page', $page);
 
         if (isset($params['name'])) {
-            $query = $query->where('name', 'like', '%' . $params['query'] . '%');
+            $query = $query->where('name', 'like', '%' . $params['name'] . '%');
         }
         return $query;
     }

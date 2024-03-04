@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('episode_id');
-            $table->text('opening_crawl');
-            $table->string('director');
-            $table->date('release_date');
+            $table->integer('episode_id')->nullable();
+            $table->text('opening_crawl')->nullable();
+            $table->string('director')->nullable();
+            $table->date('release_date')->nullable();
             $table->foreignId('actor_id')->constrained()->index();
             $table->timestamps();
         });

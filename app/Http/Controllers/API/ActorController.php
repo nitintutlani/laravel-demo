@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Actor;
+use App\Http\Requests\ActorRequest;
 
 class ActorController extends Controller
 {
@@ -19,7 +20,7 @@ class ActorController extends Controller
     /**
      * Store a newly created actor in storage.
      */
-    public function store(Request $request)
+    public function store(ActorRequest $request)
     {
         $actor = Actor::create($request->all());
         return response()->json($actor, 201);
